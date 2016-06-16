@@ -5,7 +5,7 @@ from pylab import scatter, show, title, xlabel, ylabel, plot, contour
 #Evaluate the linear regression
 
 #computing the cost to monitor the convergence
-def compute_cost_function(X, y, theta):
+def compute_cost(X, y, theta):
     '''
     Comput cost for linear regression
     '''
@@ -21,7 +21,7 @@ def compute_cost_function(X, y, theta):
     return J
 
 
-def batch_gradient_descent(X, y, theta, alpha, num_iters):
+def gradient_descent(X, y, theta, alpha, num_iters):
     '''
     Performs gradient descent to learn theta
     by taking num_items gradient steps with learning
@@ -75,10 +75,10 @@ alpha = 0.01
 
 #compute and display initial cost
 print' value of cost j(theta)'
-print compute_cost_function(it, y, theta)
+print compute_cost(it, y, theta)
 
-theta, J_history = batch_gradient_descent(it, y, theta, alpha, iterations)
-sprint'values of  theta_0 and theta_1 repectively'
+theta, J_history = gradient_descent(it, y, theta, alpha, iterations)
+print'values of  theta_0 and theta_1 repectively'
 print theta
 
 print 'using equation y= theta_0 + theta_1*x predict the values'
@@ -99,4 +99,27 @@ plot(data[:, 0], result)
 show()
 
 
+#Grid over which we will calculate J
+#theta0_vals = linspace(-10, 10, 100)
+#theta1_vals = linspace(-1, 4, 100)
 
+
+#initialize J_vals to a matrix of 0's
+#J_vals = zeros(shape=(theta0_vals.size, theta1_vals.size))
+
+#Fill out J_vals
+#for t1, element in enumerate(theta0_vals):
+ #   for t2, element2 in enumerate(theta1_vals):
+  #      thetaT = zeros(shape=(2, 1))
+   #     thetaT[0][0] = element
+    #    thetaT[1][0] = element2
+     #   J_vals[t1, t2] = compute_cost(it, y, thetaT)
+
+#Contour plot
+#J_vals = J_vals.T
+#Plot J_vals as 15 contours spaced logarithmically between 0.01 and 100
+#contour(theta0_vals, theta1_vals, J_vals, logspace(-2, 3, 20))
+#xlabel('theta_0')
+#ylabel('theta_1')
+#scatter(theta[0][0], theta[1][0])
+#show()
